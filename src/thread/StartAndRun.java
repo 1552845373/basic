@@ -15,6 +15,7 @@ public class StartAndRun {
             }
         };
         System.out.println("Current Thread is " + Thread.currentThread().getName());
+//        thread.run();
         thread.start();
     }
 }
