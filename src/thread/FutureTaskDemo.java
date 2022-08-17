@@ -6,7 +6,14 @@ import java.util.concurrent.FutureTask;
 
 public class FutureTaskDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        FutureTask<String> task = new FutureTask<>(new MyCallable());
+        FutureTask<String> task = new FutureTask<>(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                String value = "is Done";
+                Thread.sleep(2000);
+                return value;
+            }
+        });
         new Thread(task).start();
         while (!task.isDone()) {
             System.out.println("please wait");
@@ -17,14 +24,5 @@ public class FutureTaskDemo {
             }
         }
         System.out.println(task.get());
-    }
-}
-
-class MyCallable implements Callable<String> {
-    @Override
-    public String call() throws Exception {
-        String value = "is Done";
-        Thread.sleep(2000);
-        return value;
     }
 }
