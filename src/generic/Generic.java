@@ -1,6 +1,5 @@
 package generic;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -30,6 +29,7 @@ public class Generic {
 class Dog {
     private String name;
     private int age;
+
     public Dog(String name, int age) {
         this.name = name;
         this.age = age;
